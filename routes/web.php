@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\ProdukController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,3 +25,7 @@ Route::get('/dashboard', function () {
 Route::get('/master', function () {
     return view('adminapp.master');
 });
+
+Route::get('/produk', [ProdukController::class, 'index']);
+
+Route::get('produk/delete/{id}', [ProdukController::class, 'destroy'])->name('produk.delete');

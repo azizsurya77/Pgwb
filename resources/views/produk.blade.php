@@ -8,7 +8,7 @@
     
     <div class="col-12">
       <div class="bagiantambah mb-3">
-        <button href="" class="btn btn-flat btn-primary" onclick="return confirm('Delete data?')" class="">
+        <button href="" class="btn btn-flat btn-primary" class="">
           Tambah
         </button>
       </div>
@@ -45,9 +45,10 @@
               @foreach ($getProduk as $item)
               <tr>
                 <td>{{ $loop->iteration}}</td>
-                <td>{{ $item->produk}}</td>
-                <td>{{ $item->harga}}</td>
-                <td>{{ $item->jumlah}}</td>
+                <td>{{ $item->name}}</td>
+                <td>{{ $item->description}}</td>
+                <td>{{ $item->stock}}</td>
+                <td>{{ $item->price}}</td>
                 <td><a href="{{route('produk.delete', $item->id)}}" class="btn btn-flat btn-danger" onclick="return confirm('Delete data?')">Hapus</a></td>
               </tr>
               @endforeach

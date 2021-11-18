@@ -7,16 +7,23 @@ use Illuminate\Http\Request;
 
 class ProdukController extends Controller
 {
-    public function index(){
+    // View
+    public function index() {
         $getProduk = Produk::all();
-
-        return view('produk', compact ('getProduk'));
+        return view('produk', compact('getProduk'));
     }
-    
-    public function destroy($id)
-    {
-        $getProduk = Produk::find($id);
-        $getProduk->delete();
-        return redirect()->back();
+
+    // Read
+    public function destroy($id) {
+        $dropProduk = Produk::find($id); // Cari data
+        $dropProduk ->  delete(); // Delete data
+
+        return redirect() -> back(); // Redirect back
+    }
+
+    // Create
+    public function create() {
+        $createProduk = Produk::all();
+        return view('produk.produktambah');
     }
 }
